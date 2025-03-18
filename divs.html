@@ -46,6 +46,8 @@
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="promoteItem()">Promote Random</button>
+
 
 </body>
 <script>
@@ -72,6 +74,16 @@
         newDiv.innerText = text;
         let container = document.getElementById("target");
         container.insertBefore(newDiv, container.firstChild);
+    }
+
+    function promoteItem() {
+        let items = document.getElementsByClassName("divlist");
+        if (items.length > 1) {
+            let randomIndex = Math.floor(Math.random() * items.length);
+            let container = document.getElementById("target");
+            let itemToMove = items[randomIndex];
+            container.insertBefore(itemToMove, randomIndex === 0 ? container.firstChild : items[randomIndex - 1]);
+        }
     }
 </script>
 

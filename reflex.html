@@ -37,9 +37,10 @@
         }
 
         function beginTime() {
-            for (let i = 0; i <= 5; i++) {
+            var randomTime = Math.floor(Math.random() * 9) + 2;
+            for (let i = 0; i <= randomTime; i++) {
                 setTimeout(() => {
-                    document.getElementById("counter").innerText = 5 - i;
+                    document.getElementById("counter").innerText = randomTime - i;
                 }, i * 1000);
             }
 
@@ -53,7 +54,7 @@
                     document.getElementById("target").innerText = "Time was " + elapsed + " ms";
                     haltTime = undefined;
                 }
-            }, 5000);
+            }, randomTime*1000);
         }
     </script>
 

@@ -102,9 +102,9 @@
             let score = 0;
             let locationsVisited = 0;
             let lastLocation = 0;
-            let silverLocations = [2, 5, 11, 21, 32];
-            let goldLocation = 15;
-            let snakeLocation = 20;
+            let silverLocations = [Math.floor(Math.random() * 35), Math.floor(Math.random() * 35), Math.floor(Math.random() * 35), Math.floor(Math.random() * 35), Math.floor(Math.random() * 35)];
+            let goldLocation = Math.floor(Math.random() * 35);
+            let snakeLocation = Math.floor(Math.random() * 35);
             let gameOver = false;
 
             function check(position) {
@@ -130,6 +130,12 @@
                 lastLocation = position;
                 document.getElementById("locations").innerText = "Number of locations checked: " + locationsVisited;
                 document.getElementById("score").innerText = "Score is: " + score;
+                moveSnake();
+            }
+
+            function moveSnake() {
+                let newSnakeLocation = (snakeLocation + 7) % 35; 
+                snakeLocation = newSnakeLocation;
             }
 
             function help() {
